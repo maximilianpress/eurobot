@@ -8,14 +8,19 @@ import sys
 import pickle
 import re
 
-file = open('eurobot/eurovision_lyrics_2015.pkl','rb')
+file = open('eurobot/eurovision_lyrics_2016.pkl','rb')
+#file = open('eurobot/eurovision_lyrics_2015.pkl','rb')
 song_hash = pickle.load(file)
 num_lines = 0
 #hashtag = ' #eurovision2015'
 hashtag = ''
-while num_lines < 10:
-	song_key = random.sample(song_hash.keys(),1)[0]
 
+while num_lines < 10:
+	# choose song at random
+	song_key = random.sample(song_hash.keys(),1)[0]
+	# give it another chance to be random
+	if random.random() < 0.5:
+		continue
 	quot_pat = re.compile(r'&[rl]squo;')
 	song = re.sub(quot_pat,"'",song_hash[song_key])
 	quot_pat = r"\,"

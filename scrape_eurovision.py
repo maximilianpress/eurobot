@@ -56,7 +56,8 @@ for contest in contest_list:
 		print lyric_page.replace('<br/>',' ')
 		song_hash[song] = lyric_page.replace('<br/>',' ')
 
-outfile = open('eurovision_lyrics_2015.pkl','wb')
+outfile = open('eurovision_lyrics_2016.pkl','wb')
+#outfile = open('eurovision_lyrics_2015.pkl','wb')
 pickle.dump(song_hash,outfile)
 
 print len(song_hash.keys())
