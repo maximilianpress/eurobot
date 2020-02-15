@@ -53,10 +53,11 @@ for contest in contest_list:
 		lyric_req = urllib2.Request(root_url+'event/lyrics?event=' + contest + '&song='+song, headers={'User-Agent' : "Magic Browser"})
 		lyric_page = urllib2.urlopen(lyric_req).read()
 
-		print lyric_page.replace('<br/>',' ')
+		#print lyric_page.replace('<br/>',' ')
 		song_hash[song] = lyric_page.replace('<br/>',' ')
 
-outfile = open('eurovision_lyrics_2016.pkl','wb')
+outfile = open('eurovision_lyrics_2017.pkl','wb')
+#outfile = open('eurovision_lyrics_2016.pkl','wb')
 #outfile = open('eurovision_lyrics_2015.pkl','wb')
 pickle.dump(song_hash,outfile)
 

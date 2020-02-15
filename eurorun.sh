@@ -1,5 +1,7 @@
-#!usr/bin/sh
+#!/usr/bin/zsh
 # to post to the eurobot 
+
+t set active EurovizhnWisdom
 tweet=`python ~/eurobot/euro_rand_140.py`
 t update "$tweet"
 

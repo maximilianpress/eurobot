@@ -1,14 +1,16 @@
+#!/usr/bin/env python3
 # to load the eurovision song-hash object and return a string of lyrics of <140 chars
 # of full lines
 
 # updated for 2015 contest
-
+from __future__ import print_function
 import random
 import sys
 import pickle
 import re
+import os
 
-file = open('eurobot/eurovision_lyrics_2016.pkl','rb')
+file = open(os.path.expanduser('~/eurobot/eurovision_lyrics_2016_py3.pkl'),'rb')
 #file = open('eurobot/eurovision_lyrics_2015.pkl','rb')
 song_hash = pickle.load(file)
 num_lines = 0
@@ -52,4 +54,4 @@ for line in range(rand,num_lines):
 		break
 	str = newstr
 
-print "'"+str[3:]+"'"+hashtag
+print("'{}'{}".format(str[3:], hashtag))
